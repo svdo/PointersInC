@@ -19,7 +19,8 @@ int main(int argc, char *argv[])
   char sample[] = "ABC abc";
   showStringInfo(sample);
 
-  for (int i = 0; i < strlen(sample); ++i) {
+  for (int i = 0; i < strlen(sample); ++i)
+  {
     sample[i] += 1;
   }
   showStringInfo(sample);
