@@ -55,22 +55,28 @@ void printPersonList(Person *l)
   printf(".\n");
 }
 
-Person *insertPersonSorted(Person *head, const char* name, int age) {
+Person *insertPersonSortedByAge(Person *head, const char* name, int age) {
+  // Create new person node
   Person* newPerson = createPerson(name, age);
+  // Return existing list if creation failed
   if (newPerson == NULL) {
     return head;
   }
+  // If list is empty, new person becomes head
   if (head == NULL) {
     return newPerson;
   }
+  // If new person is younger than head, insert at beginning
   if (age < head->age) {
     newPerson->next = head;
     return newPerson;
   }
+  // Find insertion point by traversing until we find someone older
   Person* current = head;
   while (current->next != NULL && current->next->age < age) {
     current = current->next;
   }
+  // Insert new person between current and current->next
   newPerson->next = current->next;
   current->next = newPerson;
   return head;
@@ -85,7 +91,7 @@ int main(int argc, char *argv[])
   printPersonList(personlist);
   printf("\n");
 
-  personlist = insertPersonSorted(personlist, "Kwuk", 4);
+  personlist = insertPersonSortedByAge(personlist, "Kwuk", 4);
   printPersonList(personlist);
   printf("\n");
 }
