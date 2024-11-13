@@ -24,17 +24,22 @@ Person* createPerson(const char* name, int age) {
 }
 
 Person* addPerson(Person* head, const char* name, int age) {
+  // Create new person node
   Person* newPerson = createPerson(name, age);
+  // Return existing list if creation failed
   if (newPerson == NULL) {
     return head;
   }
+  // If list is empty, new person becomes head
   if (head == NULL) {
     return newPerson;
   }
+  // Traverse to end of list
   Person* current = head;
   while (current->next != NULL) {
     current = current->next;
   }
+  // Add new person to end of list
   current->next = newPerson;
   return head;
 }
