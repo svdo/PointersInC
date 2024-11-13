@@ -3,3 +3,5 @@
 2-all-just-bytes
 0-hexadecimal
 3-pointer-intro
+4-dynamic-allocation
+gmalloctest
