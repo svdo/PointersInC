@@ -11,4 +11,6 @@ int main(int argc, char *argv[])
     }
 
     printf("\nBye!\n\n");
+
+    return 0;
 }
